@@ -3,8 +3,9 @@ import java.util.HashMap;
 
 public class Dictionary_Chapter21 {
 
-	HashMap<String,String> HasMap = new HashMap<String,String>(){
-	};
+	HashMap<String,String> HasMap = new HashMap<String,String>();
+	public static String[] words = new String[4];
+	
 	
 	 Dictionary_Chapter21() {
 		HasMap.put("apple","りんご");
@@ -18,11 +19,15 @@ public class Dictionary_Chapter21 {
 		HasMap.put("muscat","マスカット");
 		HasMap.put("cherry","さくらんぼ");
 	}
-	
-//	"word→意味"
-	
-	public String outputMeaning(String word) {
-		return HasMap.get(word);
+
+	public void searchMeaning(String[] serchWord) {
+		for (int i = 0; i < serchWord.length; i++) {
+			if(HasMap.get(serchWord[i]) == null) {
+				System.out.println(serchWord[i] + "は辞書に存在しません");
+			}
+			else {
+				System.out.println(serchWord[i] + "の意味は" + HasMap.get(serchWord[i]));
+			}
+		}
 	}
-	
 }
